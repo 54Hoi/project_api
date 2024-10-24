@@ -15,8 +15,11 @@ app.get('/generate-map', (req, res) => {
     }
 
     // 將物件種類和大小轉換為陣列 (以逗號分隔)
-    const types = objectTypes.split('bush','stone','tree');  
-    const sizes = objectSizes.split('32*32','64*64','48*48');  
+    const types = objectTypes.split(',');  
+    const sizes = objectSizes.split(',').map(size => {
+        const [width, height] = size.split('x').map(Number);
+        return { width, height };
+    });  
     const maxObj = parseInt(maxObjects, 10); // 限制物件數量
 
     // 確認物件種類和大小的長度匹配
