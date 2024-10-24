@@ -78,5 +78,5 @@ app.get('/generate-map', (req, res) => {
 
 // 啟動伺服器
 app.listen(port, () => {
-    console.log(`2D Game Map Generator API running at http://localhost:3000`);
+    console.log(`Running at http://localhost:3000`);
 });
